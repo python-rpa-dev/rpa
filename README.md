@@ -16,7 +16,7 @@ pip install opencv-python pyautogui imutils pillow
 
 * Connect to GUI via VirtualBox, use vagrant to login.
 * Launch Browser, either Firefox or Chrome and log into the application
-* Open comman line console like terminator
+* Open command line console, like terminator
 
 ```
 cd bot
