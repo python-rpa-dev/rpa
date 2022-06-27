@@ -7,7 +7,7 @@
 
 ```
 git clone https://github.com/python-rpa-dev/rpa.git
-cd bot
+cd rpa
 pipenv shell
 pip install opencv-python pyautogui imutils pillow
 ```
@@ -19,7 +19,7 @@ pip install opencv-python pyautogui imutils pillow
 * Open command line console, like terminator
 
 ```
-cd bot
+cd rpa
 pipenv run python rpa.py
 ```
 
