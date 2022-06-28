@@ -2,11 +2,11 @@
 """
 Library to load configuration from an ini file
 
-@author: duc
+@author: python-rpa-dev
 
-Version Date        Author  Info
+Version Date        Author           Info
 -------------------------------------------------------------------------------
-1.0.0   2022.06.20  duc     Initial Version
+1.0.0   2022.06.20  python-rpa-dev   Initial Version
 
 """
 

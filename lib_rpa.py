@@ -2,12 +2,12 @@
 """
 Library for RPA functions like image detection
 
-@author: duc
+@author: python-rpa-dev
 
-Version Date        Author  Info
+Version Date        Author           Info
 -------------------------------------------------------------------------------
-1.0.0   2022.06.20  duc     Initial Version
-1.0.1   2022.06.22  duc     Added class definition
+1.0.0   2022.06.20  python-rpa-dev   Initial Version
+1.0.1   2022.06.22  python-rpa-dev   Added class definition
 
 """
 
