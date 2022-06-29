@@ -7,8 +7,9 @@ RPA Workflow / main application
 Version Date        Author          Info
 ---------------------------------------------------------------------------------------
 1.0.0   2022.06.20  python-rpa-dev  Initial Version
-1.0.1   2022.06.20  python-rpa-dev  Set loglevel with environment variable RPA_LOGLEVEL
+1.0.1   2022.06.29  python-rpa-dev  Set loglevel with environment variable RPA_LOGLEVEL
                                     see https://powerfulpython.com/blog/nifty-python-logging-trick/
+1.0.2   2022.06.29  python-rpa-dev  Add checksum so we can use versioning for data collection etc.
 
 """
 
@@ -16,6 +17,7 @@ import logging
 from lib_config import load_config
 from lib_rpa import Robotic_Process_Automation
 import os
+import hashlib
 
 logger = logging.getLogger(__name__)
 
@@ -293,6 +295,10 @@ def switch_to_city():
 def main():
     """ main routine """
     global rpa
+    app_md5 = hashlib.md5(open('rpa.py','rb').read()).hexdigest()
+
+    logger.info('App version hash (md5): %s', app_md5)
+
     app_cfg = load_config('rpa.ini')
 #   tmp_dir = app_cfg['Environment']['tmp_dir']
 
