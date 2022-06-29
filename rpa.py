@@ -18,6 +18,7 @@ from pyrpa.lib_config import load_config
 from pyrpa.lib_rpa import Robotic_Process_Automation
 from pyrpa.lib_secv import gen_checksum
 import os
+import argparse
 
 logger = logging.getLogger(__name__)
 
@@ -246,7 +247,7 @@ def asgard():
 
     #         rpa.save_queue('start_fights')
 
-    #         while rpa.end_of_queue_state():    
+    #         while rpa.end_of_queue_state():
     #             # wait for auto battle button
     #             rpa.wait_for_image(['btn_battle_auto.png'], max_wait=15)
 
@@ -298,12 +299,13 @@ class CustomLogRecord(logging.LogRecord):
         super().__init__(*args, **kwargs)
         self.origin = f"{self.filename}:{self.lineno}"
 
-def main():
+def main(ini_file, checksum):
     """ main routine """
     global rpa
-    
-    app_md5 = gen_checksum('rpa.py')
-    app_cfg = load_config('rpa.ini')
+
+    logger.info('RPA client version: %s', checksum)
+
+    app_cfg = load_config(ini_file)
 #   tmp_dir = app_cfg['Environment']['tmp_dir']
 
     rpa = Robotic_Process_Automation(
@@ -334,11 +336,19 @@ def main():
 
     # repeatable steps, switched to ini file configuration
     for module in app_cfg["RPA"]["run_daily"].strip().split("\n"):
-        globals()[module]()    
+        globals()[module]()
 
 if __name__ == "__main__":
     RPA_LOGLEVEL = os.environ.get('RPA_LOGLEVEL', 'DEBUG').upper()
-   
+
+    app_chksum = gen_checksum('rpa.py')
+
+    # parse parameters
+    parser = argparse.ArgumentParser(description='HW Robot Client')
+    parser.add_argument('--version' , action='version', version='%(prog)s rel 1.0.0 (' + app_chksum[0:8] + ')')
+    parser.add_argument('--ini-file', required=True, help='Initial parameters file')
+    args = parser.parse_args()
+
     # setup logging capabilities
     logging.setLogRecordFactory(CustomLogRecord)
     logging.basicConfig(
@@ -347,4 +357,4 @@ if __name__ == "__main__":
         level=RPA_LOGLEVEL
         )
 
-    main()
+    main(args.ini_file, app_chksum)

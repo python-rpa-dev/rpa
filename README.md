@@ -43,5 +43,5 @@ pip install opencv-python pyautogui imutils pillow
 
 ```
 cd rpa
-pipenv run python rpa.py
+pipenv run python rpa.py --ini-file rpa.ini
 ```
