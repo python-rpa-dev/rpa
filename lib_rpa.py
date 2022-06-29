@@ -212,6 +212,7 @@ def wait_and_click(image_paths, confidence=0.8, max_wait=None, sleep=1, scale=No
     if len(positions):
         point = pyautogui.center(positions[0])
 
+        pyautogui.moveTo(point.x, point.y)
         pyautogui.click(point.x, point.y)
 
         logger.debug("Point clicked %s", point)
@@ -352,7 +353,7 @@ if __name__ == "__main__":
         max_wait=10
         )
 
-    rpa.wait_for_image(['logo_nexters.png', 'logo_nexters.png'])
+    rpa.wait_and_click(['logo_nexters.png', 'logo_nexters.png'])
 
     rpa.save_queue('test')
 

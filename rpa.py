@@ -5,14 +5,17 @@ RPA Workflow / main application
 @author: python-rpa-dev
 
 Version Date        Author          Info
--------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 1.0.0   2022.06.20  python-rpa-dev  Initial Version
+1.0.1   2022.06.20  python-rpa-dev  Set loglevel with environment variable RPA_LOGLEVEL
+                                    see https://powerfulpython.com/blog/nifty-python-logging-trick/
 
 """
 
 import logging
 from lib_config import load_config
 from lib_rpa import Robotic_Process_Automation
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -322,11 +325,13 @@ def main():
 
 
 if __name__ == "__main__":
+    RPA_LOGLEVEL = os.environ.get('RPA_LOGLEVEL', 'DEBUG').upper()
+   
     # setup logging capabilities
     logging.basicConfig(
         format='%(asctime)s [%(filename)s:%(lineno)-5s] %(levelname)-5s - %(funcName)-20s - %(message)s',
         datefmt='%Y/%m/%d %H:%M:%S',
-        level=logging.DEBUG
+        level=RPA_LOGLEVEL
         )
 
     main()
