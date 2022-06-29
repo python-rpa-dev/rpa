@@ -4,20 +4,20 @@ RPA Workflow / main application
 
 @author: python-rpa-dev
 
-Version Date        Author          Info
----------------------------------------------------------------------------------------
-1.0.0   2022.06.20  python-rpa-dev  Initial Version
-1.0.1   2022.06.29  python-rpa-dev  Set loglevel with environment variable RPA_LOGLEVEL
-                                    see https://powerfulpython.com/blog/nifty-python-logging-trick/
-1.0.2   2022.06.29  python-rpa-dev  Add checksum so we can use versioning for data collection etc.
+Date        Author          Info
+-------------------------------------------------------------------------------
+2022.06.20  python-rpa-dev  Initial Version
+2022.06.29  python-rpa-dev  Set loglevel with environment variable RPA_LOGLEVEL
+                            see https://powerfulpython.com/blog/nifty-python-logging-trick/
+2022.06.29  python-rpa-dev  Add checksum so we can use versioning for data collection etc.
 
 """
 
 import logging
 from lib_config import load_config
 from lib_rpa import Robotic_Process_Automation
+from lib_secv import gen_checksum
 import os
-import hashlib
 
 logger = logging.getLogger(__name__)
 
@@ -296,14 +296,7 @@ def main():
     """ main routine """
     global rpa
     
-    with open('rpa.py') as f:
-        alist = [line.rstrip() for line in f]
-        app_md5 = hashlib.md5(''.join(alist).encode()).hexdigest()
-
-#   app_md5 = hashlib.md5(open('rpa.py','rb').read()).hexdigest()
-
-    logger.info('App version hash (md5): %s', app_md5)
-
+    app_md5 = gen_checksum('rpa.py')
     app_cfg = load_config('rpa.ini')
 #   tmp_dir = app_cfg['Environment']['tmp_dir']
 
