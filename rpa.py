@@ -295,7 +295,12 @@ def switch_to_city():
 def main():
     """ main routine """
     global rpa
-    app_md5 = hashlib.md5(open('rpa.py','rb').read()).hexdigest()
+    
+    with open('rpa.py') as f:
+        alist = [line.rstrip() for line in f]
+        app_md5 = hashlib.md5(''.join(alist).encode()).hexdigest()
+
+#   app_md5 = hashlib.md5(open('rpa.py','rb').read()).hexdigest()
 
     logger.info('App version hash (md5): %s', app_md5)
 
