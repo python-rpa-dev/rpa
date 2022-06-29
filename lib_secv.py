@@ -26,6 +26,7 @@ def gen_checksum(source_file: str):
             checksum = hashlib.md5(''.join(alist).encode()).hexdigest()
 
         logger.info("File processing done.")
+        logger.info("File checksum is: %s", checksum)
 
     except Exception as e:
         logger.critical("Error reading source file!")
@@ -43,4 +44,3 @@ if __name__ == "__main__":
 
     app_md5 = gen_checksum('rpa.py')
    
-    logger.info("File checksum is: %s", app_md5)
