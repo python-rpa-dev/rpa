@@ -309,20 +309,22 @@ def main():
 
     # init_queue()
 
-    # repeatable steps
-    first_screen()
-    chest()
-    daily_quests()
-    airship()
-    send_presents()
-    outland()
-    mail()
-    switch_to_guild()
-    dungeon()
-    asgard()
-    switch_to_city()
-    daily_quests()
+    #first_screen()
+    #chest()
+    #daily_quests()
+    #airship()
+    #send_presents()
+    #outland()
+    #mail()
+    #switch_to_guild()
+    #dungeon()
+    #asgard()
+    #switch_to_city()
+    #daily_quests()
 
+    # repeatable steps, switched to ini file configuration
+    for module in app_cfg["RPA"]["run_daily"].strip().split("\n"):
+        globals()[module]()    
 
 if __name__ == "__main__":
     RPA_LOGLEVEL = os.environ.get('RPA_LOGLEVEL', 'DEBUG').upper()

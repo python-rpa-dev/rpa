@@ -7,6 +7,7 @@ Library to load configuration from an ini file
 Version Date        Author           Info
 -------------------------------------------------------------------------------
 1.0.0   2022.06.20  python-rpa-dev   Initial Version
+1.0.1   2022.06.29  python-rpa-dev   Test multiple values for workflow config
 
 """
 
@@ -42,4 +43,7 @@ if __name__ == "__main__":
         level=logging.DEBUG
         )
 
-    load_config('rpa.ini')
+    test_cfg = load_config('rpa.ini')
+    for module in test_cfg["RPA"]["run_daily"].strip().split("\n"):
+        logger.debug(module)
+
