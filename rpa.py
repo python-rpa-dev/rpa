@@ -292,6 +292,12 @@ def switch_to_city():
         rpa.wait_for_image(['btn_guild.png'], max_wait=30)
 
 
+class CustomLogRecord(logging.LogRecord):
+    """ Improve log output for source file and line number """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.origin = f"{self.filename}:{self.lineno}"
+
 def main():
     """ main routine """
     global rpa
@@ -334,8 +340,9 @@ if __name__ == "__main__":
     RPA_LOGLEVEL = os.environ.get('RPA_LOGLEVEL', 'DEBUG').upper()
    
     # setup logging capabilities
+    logging.setLogRecordFactory(CustomLogRecord)
     logging.basicConfig(
-        format='%(asctime)s [%(filename)s:%(lineno)-5s] %(levelname)-5s - %(funcName)-20s - %(message)s',
+        format='%(asctime)s [%(origin)-20s] %(levelname)-5s - %(funcName)-20s - %(message)s',
         datefmt='%Y/%m/%d %H:%M:%S',
         level=RPA_LOGLEVEL
         )
