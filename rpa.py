@@ -14,9 +14,9 @@ Date        Author          Info
 """
 
 import logging
-from lib_config import load_config
-from lib_rpa import Robotic_Process_Automation
-from lib_secv import gen_checksum
+from pyrpa.lib_config import load_config
+from pyrpa.lib_rpa import Robotic_Process_Automation
+from pyrpa.lib_secv import gen_checksum
 import os
 
 logger = logging.getLogger(__name__)
