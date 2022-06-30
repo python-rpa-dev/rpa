@@ -17,11 +17,11 @@ logger = logging.getLogger(__name__)
 
 
 def gen_checksum(source_file: str):
-    """  """
+    """ Generate source file checksum """
     logger.info("Open configuration: %s", source_file)
 
     try:
-        with open('rpa.py') as f:
+        with open(source_file) as f:
             alist = [line.rstrip() for line in f]
             checksum = hashlib.md5(''.join(alist).encode()).hexdigest()
 
