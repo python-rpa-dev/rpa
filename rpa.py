@@ -165,6 +165,53 @@ def mail():
         rpa.press('esc', presses=2)
 
 
+def tower():
+    """
+    ----------------------------------------------------------------------
+    Step: get all tower chests (without emeralds)
+    """
+    rpa.wait_and_click(['btn_tower.png'])
+
+    rpa.save_queue('start_loop')
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_tower_instclear.png'])
+
+        if rpa.end_of_queue_state():
+           rpa.wait_and_click(['btn_tower_ch_chests.png'])
+
+        rpa.restore_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+           rpa.wait_and_click(['btn_tower_chest.png'])
+        
+           if rpa.end_of_queue_state():
+               rpa.wait_and_click(['btn_tower_open.png'])
+
+               if rpa.end_of_queue_state():
+                   rpa.wait_and_click(['btn_tower_proceed.png'])
+    
+    rpa.press('esc', presses=1) # End of tower
+
+    rpa.wait_and_click(['btn_tower_skull.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_tower_exch_skull_coins.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.press('esc', presses=1) # Exit collecting coins
+
+    rpa.wait_and_click(['btn_tower_points.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_tower_points_collect.png'])
+    
+        if rpa.end_of_queue_state():
+            rpa.press('esc', presses=1) # Exit collecting points
+
+
+    rpa.press('esc', presses=1) # Exit collecting points
+
 def dungeon():
     """
     ----------------------------------------------------------------------
