@@ -48,7 +48,7 @@ def chest():
     rpa.wait_and_click(['btn_chest2.png'])
 
     if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_chest_open.png', 'btn_chest_open2.png'], max_wait=5)
+        rpa.wait_and_click(['btn_chest_open.png', 'btn_chest3.png'], max_wait=5)
 
     rpa.press('esc', presses=5, interval=0.5)
 
