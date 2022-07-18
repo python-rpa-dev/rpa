@@ -183,7 +183,7 @@ def tower():
         rpa.restore_queue('start_loop')
 
         while rpa.end_of_queue_state():
-           rpa.wait_and_click(['btn_tower_chest.png', 'btn_tower_chest_2.png'])
+           rpa.wait_and_click(['btn_tower_chest.png', 'btn_tower_chest_2.png', 'btn_tower_chest_3.png'])
         
            if rpa.end_of_queue_state():
                rpa.wait_and_click(['btn_tower_open.png'])
