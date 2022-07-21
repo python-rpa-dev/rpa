@@ -38,7 +38,7 @@ def first_screen():
 
     rpa.press('esc', presses=3)  # exit promotion screen
 
-def server44():
+def server_44():
     """
     ----------------------------------------------------------------------
     Step: Change to Server 44
