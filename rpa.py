@@ -44,9 +44,9 @@ def server44():
     Step: Change to Server 44
     ----------------------------------------------------------------------
     """
-rpa.wait_and_click(['btn_server.png'])
+    rpa.wait_and_click(['btn_server.png'])
 
-if rpa.end_of_queue_state():
+    if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_server_change.png'])
     
         if rpa.end_of_queue_state():
