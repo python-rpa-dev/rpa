@@ -233,6 +233,86 @@ def dungeon():
 
         rpa.press('esc', presses=2, interval=0.5)
 
+<<<<<<< Updated upstream
+=======
+def divination_cards():
+    """
+    ----------------------------------------------------------------------
+    Step: Use all divination cards
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_dungeon.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_dungeon_portal.png'])
+
+        while rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_divination_battle.png','btn_divination_attack.png','btn_divination_fate.png'])
+
+        rpa.press('esc', presses=6, interval=0.5)
+
+        
+    
+
+def tournament():
+    """
+    ----------------------------------------------------------------------
+    Step: Raid tournament
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_titan_valley.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_tournament.png'])
+
+        rpa.save_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_tournament_raid.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_tournament_raid2.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.wait_and_click(['btn_tournament_ok.png'])
+
+                    if rpa.end_of_queue_state():
+                        rpa.wait_and_click(['btn_tournament_claim.png'])
+                   
+
+                # need to set queue state to start of loop
+        rpa.restore_queue('start_loop')
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_tournament_chest.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_tournament_claim2.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.press('esc', presses=4, interval=0.5)
+
+        
+
+def altar():
+    """
+    ----------------------------------------------------------------------
+    Step: Open Titan Artifact Sphere
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_titan_valley.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_altar.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_altar_sphere.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_altar_exit.png'])
+
+        rpa.press('esc', presses=5, interval=0.5)
+>>>>>>> Stashed changes
 
 def asgard():
     """
