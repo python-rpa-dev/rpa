@@ -38,7 +38,20 @@ def first_screen():
 
     rpa.press('esc', presses=3)  # exit promotion screen
 
+def server44():
+  """
+    ----------------------------------------------------------------------
+    Step: Change to Server 44
+    ----------------------------------------------------------------------
+    """
+rpa.wait_and_click(['btn_server.png'])
 
+if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_server_change.png'])
+    
+        if rpa.end_of_queue_state():
+          rpa.wait_and_click(['btn_server_down.png'])
+  
 def daily_bonus():
     """
     ----------------------------------------------------------------------
@@ -50,7 +63,10 @@ def daily_bonus():
     if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_daily_bonus_collect.png'], max_wait=5)
 
-    rpa.press('esc', presses=5, interval=0.5)
+        while rpa.end_of_queue_state():
+          rpa.wait_and_click(['btn_server_44.png'], max_wait=5)
+          rpa.wait_and_click(['btn_server_select.png'], max_wait=5)
+          rpa.wait_and_click(['btn_server_down.png'], max_wait=5)
 
 def chest():
     """
