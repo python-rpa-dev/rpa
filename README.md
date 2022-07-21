@@ -29,7 +29,7 @@ Note: The sandbox comes with an automated installation for the RPA client, the *
 * You need to select a folder where you want to install the RPA client. The users home directory is usually the default in the command line.
 
 ```
-git clone https://github.com/python-rpa-dev/rpa.git
+git clone https://github.com/Abiaz/rpa.git
 cd rpa
 pipenv shell
 pip install opencv-python pyautogui imutils pillow
