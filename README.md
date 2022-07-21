@@ -43,5 +43,10 @@ pip install opencv-python pyautogui imutils pillow
 
 ```
 cd rpa
-pipenv run python rpa.py --ini-file rpa.ini
+pipenv run python rpa.py --ini-file rpa.ini --profile RPA_std
 ```
+
+Available profiles are:
+- RPA_test -> Tests one GUI element
+- RPA_std -> Default tasks
+- RPA_ext -> Default tasks + experimental/new tasks
