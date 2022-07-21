@@ -334,7 +334,7 @@ def divination_cards():
         rpa.wait_and_click(['btn_dungeon_portal.png'])
 
         while rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_divination_battle.png','btn_divination_attack.png','btn_divination_fate.png','btn_divination_savepoint.png','btn_divination_collect.png'], max_wait=15)
+                rpa.wait_and_click(['btn_divination_battle.png','btn_divination_attack.png','btn_divination_fate.png'])
 
         rpa.press('esc', presses=6, interval=0.5)
 
