@@ -299,7 +299,7 @@ def tower():
             rpa.press('esc', presses=1) # Exit collecting points
 
 
-    rpa.press('esc', presses=1) # Exit collecting points
+    rpa.press('esc', presses=5, interval=0.5) # Exit collecting points
 
 def dungeon():
     """
