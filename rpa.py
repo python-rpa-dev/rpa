@@ -39,6 +39,19 @@ def first_screen():
     rpa.press('esc', presses=3)  # exit promotion screen
 
 
+def daily_bonus():
+    """
+    ----------------------------------------------------------------------
+    Step: get daily bonus
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_daily_bonus.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_daily_bonus_collect.png'], max_wait=5)
+
+    rpa.press('esc', presses=5, interval=0.5)
+
 def chest():
     """
     ----------------------------------------------------------------------
@@ -103,7 +116,81 @@ def airship():
 
         rpa.press('esc', presses=3, interval=0.5)
 
+def arena():
+    """
+    ----------------------------------------------------------------------
+    Step: 1st fight in arena
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_arena.png'])
 
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_attack.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_battle.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_arena_pause.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+            
+            rpa.press('esc', presses=1)
+
+def arena2():
+    """
+    ----------------------------------------------------------------------
+    Step: 2nd fight in arena
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_arena.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_attack.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_battle.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_arena_pause.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+            
+            rpa.press('esc', presses=1)
+
+def grand_arena():
+    """
+    ----------------------------------------------------------------------
+    Step: 1 fight in grand arena
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_grand_arena.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_grand_arena_battle.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_grand_arena_attack.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_grand_arena_next.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.wait_and_click(['btn_grand_arena_next.png'])
+
+                    if rpa.end_of_queue_state():
+                        rpa.wait_and_click(['btn_grand_arena_battle2.png'])
+
+                        if rpa.end_of_queue_state():
+                            rpa.wait_and_click(['btn_grand_arena_pause.png'])
+
+                            if rpa.end_of_queue_state():
+                                rpa.wait_and_click(['btn_grand_arena_skip.png'])
+
+            rpa.press('esc', presses=1)
+       
 def send_presents():
     """
     ----------------------------------------------------------------------
@@ -162,7 +249,10 @@ def mail():
         if rpa.end_of_queue_state():
             rpa.wait_and_click(['btn_mail_collect_all2.png'])
 
-        rpa.press('esc', presses=2)
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_mail_show_all.png'], max_wait=15)
+
+        rpa.press('esc', presses=5, interval=0.5)
 
 
 def tower():
@@ -183,7 +273,7 @@ def tower():
         rpa.restore_queue('start_loop')
 
         while rpa.end_of_queue_state():
-           rpa.wait_and_click(['btn_tower_chest.png', 'btn_tower_chest_2.png', 'btn_tower_chest_3.png'])
+           rpa.wait_and_click(['btn_tower_chest.png', 'btn_tower_chest_2.png', 'btn_tower_chest_3.png'], confidence =0.7)
         
            if rpa.end_of_queue_state():
                rpa.wait_and_click(['btn_tower_open.png'])
@@ -233,6 +323,64 @@ def dungeon():
 
         rpa.press('esc', presses=2, interval=0.5)
 
+def tournament():
+    """
+    ----------------------------------------------------------------------
+    Step: Raid tournament
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_titan_valley.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_tournament.png'])
+
+        rpa.save_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_tournament_raid.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_tournament_raid2.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.wait_and_click(['btn_tournament_ok.png'])
+
+                    if rpa.end_of_queue_state():
+                        rpa.wait_and_click(['btn_tournament_claim.png'])
+                   
+
+                # need to set queue state to start of loop
+        rpa.restore_queue('start_loop')
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_tournament_chest.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_tournament_claim2.png'])
+
+                if rpa.end_of_queue_state():
+                    rpa.press('esc', presses=4, interval=0.5)
+
+        
+
+def altar():
+    """
+    ----------------------------------------------------------------------
+    Step: Open Titan Artifact Sphere
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_titan_valley.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_altar.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_altar_sphere.png'])
+
+            if rpa.end_of_queue_state():
+                rpa.wait_and_click(['btn_altar_exit.png'])
+
+        rpa.press('esc', presses=5, interval=0.5)
 
 def asgard():
     """
