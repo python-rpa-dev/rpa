@@ -137,19 +137,29 @@ def arena():
     """
     rpa.wait_and_click(['btn_arena.png'])
 
-    if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_arena_attack.png'])
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll'])
 
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_arena_battle.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    rpa.wait_and_click(['btn_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_battle.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_pause.png'], max_wait=20)
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_arena_pause.png'])
-
-                if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+                rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=3, interval=0.5)
+    rpa.press('esc', presses=3, interval=0.5)
 
 def arena2():
     """
@@ -159,19 +169,29 @@ def arena2():
     """
     rpa.wait_and_click(['btn_arena.png'])
 
-    if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_arena_attack.png'])
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll'])
 
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_arena_battle.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    rpa.wait_and_click(['btn_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_battle.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_pause.png'], max_wait=20)
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_arena_pause.png'])
-
-                if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+                rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=3, interval= 0.5)
+    rpa.press('esc', presses=3, interval=0.5)
 
 def grand_arena():
     """
@@ -184,25 +204,38 @@ def grand_arena():
     if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_grand_arena_battle.png'])
 
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll'])
+
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_grand_arena_attack.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_grand_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    
+    
+
+    rpa.wait_and_click(['btn_grand_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_grand_arena_next.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_grand_arena_next.png'])
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_grand_arena_next.png'])
+                rpa.wait_and_click(['btn_grand_arena_battle2.png'])
 
                 if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_grand_arena_next.png'])
+                     rpa.wait_and_click(['btn_grand_arena_pause.png'], max_wait=20)
 
-                    if rpa.end_of_queue_state():
-                        rpa.wait_and_click(['btn_grand_arena_battle2.png'])
+                     if rpa.end_of_queue_state():
+                         rpa.wait_and_click(['btn_grand_arena_skip.png'])
 
-                        if rpa.end_of_queue_state():
-                            rpa.wait_and_click(['btn_grand_arena_pause.png'])
-
-                            if rpa.end_of_queue_state():
-                                rpa.wait_and_click(['btn_grand_arena_skip.png'])
-
-            rpa.press('esc', presses=3, interval=0.5)
+    rpa.press('esc', presses=3, interval=0.5)
        
 def send_presents():
     """
