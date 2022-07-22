@@ -63,10 +63,7 @@ def daily_bonus():
     if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_daily_bonus_collect.png'], max_wait=5)
 
-        while rpa.end_of_queue_state():
-          rpa.wait_and_click(['btn_server_44.png'], max_wait=5)
-          rpa.wait_and_click(['btn_server_select.png'], max_wait=5)
-          rpa.wait_and_click(['btn_server_down.png'], max_wait=5)
+    rpa.press('esc', presses=5, interval=0.5)
 
 def chest():
     """
@@ -130,7 +127,7 @@ def airship():
 
             rpa.press('esc', presses=1)
 
-        rpa.press('esc', presses=3, interval=0.5)
+        rpa.press('esc', presses=5, interval=0.5)
 
 def arena():
     """
@@ -152,7 +149,7 @@ def arena():
                 if rpa.end_of_queue_state():
                     rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=1)
+            rpa.press('esc', presses=3, interval=0.5)
 
 def arena2():
     """
@@ -174,7 +171,7 @@ def arena2():
                 if rpa.end_of_queue_state():
                     rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=1)
+            rpa.press('esc', presses=3, interval= 0.5)
 
 def grand_arena():
     """
@@ -205,7 +202,7 @@ def grand_arena():
                             if rpa.end_of_queue_state():
                                 rpa.wait_and_click(['btn_grand_arena_skip.png'])
 
-            rpa.press('esc', presses=1)
+            rpa.press('esc', presses=3, interval=0.5)
        
 def send_presents():
     """
@@ -223,7 +220,7 @@ def send_presents():
 
             rpa.press('esc', presses=1)
 
-        rpa.press('esc', presses=1)
+        rpa.press('esc', presses=3, interval=0.5)
 
 
 def outland():
@@ -248,7 +245,7 @@ def outland():
 
     rpa.wait_and_click(['btn_outland_exit.png'])
 
-    rpa.press('esc', presses=3, interval=0.5)
+    rpa.press('esc', presses=5, interval=0.5)
 
 def mail():
     """
