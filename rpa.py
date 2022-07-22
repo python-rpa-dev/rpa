@@ -528,7 +528,7 @@ class CustomLogRecord(logging.LogRecord):
         super().__init__(*args, **kwargs)
         self.origin = f"{self.filename}:{self.lineno}"
 
-def main(ini_file, checksum):
+def main(ini_file, profile, checksum):
     """ main routine """
     global rpa
 
@@ -564,7 +564,7 @@ def main(ini_file, checksum):
     #daily_quests()
 
     # repeatable steps, switched to ini file configuration
-    for module in app_cfg["RPA"]["run_daily"].strip().split("\n"):
+    for module in app_cfg[profile]["run_daily"].strip().split("\n"):
         globals()[module]()
 
 if __name__ == "__main__":
@@ -576,6 +576,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='HW Robot Client')
     parser.add_argument('--version' , action='version', version='%(prog)s rel 1.0.0 (' + app_chksum[0:8] + ')')
     parser.add_argument('--ini-file', required=True, help='Initial parameters file')
+    parser.add_argument('--profile', required=True, help='RPA Profile (RPA_<namer>)')
     args = parser.parse_args()
 
     # setup logging capabilities
@@ -586,4 +587,4 @@ if __name__ == "__main__":
         level=RPA_LOGLEVEL
         )
 
-    main(args.ini_file, app_chksum)
+    main(args.ini_file, args.profile, app_chksum)
