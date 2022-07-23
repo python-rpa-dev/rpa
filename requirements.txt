@@ -1,0 +1,12 @@
+imutils
+MouseInfo
+numpy
+opencv-python
+Pillow
+PyAutoGUI
+PyGetWindow
+PyMsgBox
+pyperclip
+PyRect
+PyScreeze
+pytweening

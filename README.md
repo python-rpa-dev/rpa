@@ -32,7 +32,7 @@ Note: The sandbox comes with an automated installation for the RPA client, the *
 git clone https://github.com/python-rpa-dev/rpa.git
 cd rpa
 pipenv shell
-pip install opencv-python pyautogui imutils pillow
+pip install -r requirements.txt
 ```
 
 ## Run RPA client on sandbox or desktop
