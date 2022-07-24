@@ -474,8 +474,8 @@ def tournament():
             if rpa.end_of_queue_state():
                 rpa.wait_and_click(['btn_tournament_claim2.png'])
 
-                if rpa.end_of_queue_state():
-                    rpa.press('esc', presses=4, interval=0.5)
+                
+    rpa.press('esc', presses=4, interval=0.5)
 
         
 
