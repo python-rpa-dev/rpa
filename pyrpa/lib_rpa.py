@@ -328,6 +328,9 @@ class Robotic_Process_Automation():
         """
         return wait_and_click(image_paths, confidence, max_wait, sleep, scale)
 
+    def sleep(self, wait):
+        time.sleep(wait)
+
     def end_of_queue_state(self):
         return end_of_queue_state()
 
@@ -348,7 +351,7 @@ if __name__ == "__main__":
 
     rpa = Robotic_Process_Automation(
         name='test',
-        tmp_dir='./tmp',
+        tmp_dir='../tmp',
         scale=1.0,
         max_wait=10
         )
@@ -361,6 +364,7 @@ if __name__ == "__main__":
     logger.debug("End of Queue State%s", end_of_queue_state())
 
     rpa.restore_queue('test')
+    rpa.sleep(10)
 
 #    set_tmp_dir('./tmp')
 #    set_def_scale(1.0)

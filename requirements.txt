@@ -1,6 +1,6 @@
 imutils
 MouseInfo
-numpy
+numpy==1.23.0
 opencv-python
 Pillow
 PyAutoGUI

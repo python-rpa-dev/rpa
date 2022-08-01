@@ -4,6 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+imutils = "*"
+mouseinfo = "*"
+numpy = "==1.23.0"
+opencv-python = "*"
+pillow = "*"
+pyautogui = "*"
+pygetwindow = "*"
+pymsgbox = "*"
+pyperclip = "*"
+pyrect = "*"
+pyscreeze = "*"
+pytweening = "*"
 
 [dev-packages]
 
