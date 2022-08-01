@@ -47,11 +47,63 @@ def server_44():
     rpa.wait_and_click(['btn_server.png'])
 
     if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_server_change.png'])
-    
-        if rpa.end_of_queue_state():
-          rpa.wait_and_click(['btn_server_down.png'])
+        rpa.wait_and_click(['btn_server_change.png'], confidence=0.9)
+
+        rpa.save_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+           rpa.wait_and_click(['btn_server_down.png'], max_wait=20)
+
+           if rpa.end_of_queue_state():
+               rpa.wait_and_click(['btn_server_44.png'], max_wait=1)
+               rpa.wait_and_click(['btn_server_select.png'])
+
+        rpa.restore_queue('start_loop')
+
+def server_51():
+    """
+    ----------------------------------------------------------------------
+    Step: Change to Server 51
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_server.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_server_change.png'], confidence=0.9)
+
+        rpa.save_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+           rpa.wait_and_click(['btn_server_up.png'], max_wait=20)
+
+           if rpa.end_of_queue_state():
+               rpa.wait_and_click(['btn_server_51.png'], max_wait=1)
+               rpa.wait_and_click(['btn_server_select.png'])
+
+        rpa.restore_queue('start_loop')       
   
+def server_90():
+    """
+    ----------------------------------------------------------------------
+    Step: Change to Server 90
+    ----------------------------------------------------------------------
+    """
+    rpa.wait_and_click(['btn_server.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_server_change.png'], confidence=0.9)
+
+        rpa.save_queue('start_loop')
+
+        while rpa.end_of_queue_state():
+           rpa.wait_and_click(['btn_server_up.png'], max_wait=20)
+
+           if rpa.end_of_queue_state():
+               rpa.wait_and_click(['btn_server_90.png'], max_wait=1)
+               rpa.wait_and_click(['btn_server_select.png'])
+
+        rpa.restore_queue('start_loop')       
+
 def daily_bonus():
     """
     ----------------------------------------------------------------------
@@ -63,10 +115,7 @@ def daily_bonus():
     if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_daily_bonus_collect.png'], max_wait=5)
 
-        while rpa.end_of_queue_state():
-          rpa.wait_and_click(['btn_server_44.png'], max_wait=5)
-          rpa.wait_and_click(['btn_server_select.png'], max_wait=5)
-          rpa.wait_and_click(['btn_server_down.png'], max_wait=5)
+    rpa.press('esc', presses=5, interval=0.5)
 
 def chest():
     """
@@ -130,7 +179,7 @@ def airship():
 
             rpa.press('esc', presses=1)
 
-        rpa.press('esc', presses=3, interval=0.5)
+        rpa.press('esc', presses=5, interval=0.5)
 
 def arena():
     """
@@ -140,19 +189,29 @@ def arena():
     """
     rpa.wait_and_click(['btn_arena.png'])
 
-    if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_arena_attack.png'])
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll.png'])
 
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_arena_battle.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    rpa.wait_and_click(['btn_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_battle.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_pause.png'], max_wait=20)
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_arena_pause.png'])
-
-                if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+                rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=1)
+    rpa.press('esc', presses=3, interval=0.5)
 
 def arena2():
     """
@@ -162,19 +221,29 @@ def arena2():
     """
     rpa.wait_and_click(['btn_arena.png'])
 
-    if rpa.end_of_queue_state():
-        rpa.wait_and_click(['btn_arena_attack.png'])
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll.png'])
 
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_arena_battle.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    rpa.wait_and_click(['btn_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_arena_battle.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_arena_pause.png'], max_wait=20)
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_arena_pause.png'])
-
-                if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_arena_skip_battle.png'])
+                rpa.wait_and_click(['btn_arena_skip_battle.png'])
             
-            rpa.press('esc', presses=1)
+    rpa.press('esc', presses=3, interval=0.5)
 
 def grand_arena():
     """
@@ -187,25 +256,38 @@ def grand_arena():
     if rpa.end_of_queue_state():
         rpa.wait_and_click(['btn_grand_arena_battle.png'])
 
+    rpa.save_queue('start_loop')
+
+    while rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_kattegat.png','btn_kattegat2.png','btn_arena_skoll.png'])
+
         if rpa.end_of_queue_state():
-            rpa.wait_and_click(['btn_grand_arena_attack.png'])
+            rpa.press('esc')
+            rpa.wait_and_click(['btn_grand_arena_refresh.png'])
+
+            rpa.restore_queue('start_loop')
+
+    
+    
+
+    rpa.wait_and_click(['btn_grand_arena_attack.png'])
+
+    if rpa.end_of_queue_state():
+        rpa.wait_and_click(['btn_grand_arena_next.png'])
+
+        if rpa.end_of_queue_state():
+            rpa.wait_and_click(['btn_grand_arena_next.png'])
 
             if rpa.end_of_queue_state():
-                rpa.wait_and_click(['btn_grand_arena_next.png'])
+                rpa.wait_and_click(['btn_grand_arena_battle2.png'])
 
                 if rpa.end_of_queue_state():
-                    rpa.wait_and_click(['btn_grand_arena_next.png'])
+                     rpa.wait_and_click(['btn_grand_arena_pause.png'], max_wait=20)
 
-                    if rpa.end_of_queue_state():
-                        rpa.wait_and_click(['btn_grand_arena_battle2.png'])
+                     if rpa.end_of_queue_state():
+                         rpa.wait_and_click(['btn_grand_arena_skip.png'])
 
-                        if rpa.end_of_queue_state():
-                            rpa.wait_and_click(['btn_grand_arena_pause.png'])
-
-                            if rpa.end_of_queue_state():
-                                rpa.wait_and_click(['btn_grand_arena_skip.png'])
-
-            rpa.press('esc', presses=1)
+    rpa.press('esc', presses=3, interval=0.5)
        
 def send_presents():
     """
@@ -223,7 +305,7 @@ def send_presents():
 
             rpa.press('esc', presses=1)
 
-        rpa.press('esc', presses=1)
+        rpa.press('esc', presses=3, interval=0.5)
 
 
 def outland():
@@ -248,7 +330,7 @@ def outland():
 
     rpa.wait_and_click(['btn_outland_exit.png'])
 
-    rpa.press('esc', presses=3, interval=0.5)
+    rpa.press('esc', presses=5, interval=0.5)
 
 def mail():
     """
@@ -392,8 +474,8 @@ def tournament():
             if rpa.end_of_queue_state():
                 rpa.wait_and_click(['btn_tournament_claim2.png'])
 
-                if rpa.end_of_queue_state():
-                    rpa.press('esc', presses=4, interval=0.5)
+                
+    rpa.press('esc', presses=4, interval=0.5)
 
         
 

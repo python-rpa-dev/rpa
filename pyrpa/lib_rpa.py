@@ -19,8 +19,8 @@ import imutils
 import time
 
 
-logger = logging.getLogger(__name__)
 
+logger = logging.getLogger(__name__)
 
 def set_tmp_dir(dir_path: str):
     """ set temporary directory for image files """
