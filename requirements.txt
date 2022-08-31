@@ -10,3 +10,4 @@ pyperclip
 PyRect
 PyScreeze
 pytweening
+pyinstaller

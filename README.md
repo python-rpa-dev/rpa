@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 * Download rpa.zip from github folder
 * Unzip to a folder of your choice.
-* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other windows/applications
+* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other window/applications
 * Open command line console, like terminator (sandbox) / cmd.exe (windows desktop) and change to the folder
 * Run the following command
 
@@ -59,7 +59,7 @@ rpa.exe --ini-file rpa.ini --profile RPA_std
 ## Run RPA client on sandbox or desktop
 
 * Connect to GUI via VirtualBox, use vagrant to login. You don't need this step for your desktop.
-* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other windows/applications
+* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other window/applications
 * Open command line console, like terminator (sandbox) / cmd.exe (windows desktop)
 
 ```
