@@ -20,6 +20,8 @@ def gen_checksum(source_file: str):
     """ Generate source file checksum """
     logger.info("Open configuration: %s", source_file)
 
+    checksum = "na"
+
     try:
         with open(source_file) as f:
             alist = [line.rstrip() for line in f]

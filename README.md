@@ -35,10 +35,31 @@ pipenv shell
 pip install -r requirements.txt
 ```
 
+## New: Run RPA client as binary (Windows only, for now)
+
+* Download rpa.zip from github folder
+* Unzip to a folder of your choice.
+* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other windows/applications
+* Open command line console, like terminator (sandbox) / cmd.exe (windows desktop) and change to the folder
+* Run the following command
+
+```
+launch_rpa
+```
+
+If you want to use a different profile, as in the following section (RPA_test, ...) you can 
+
+* copy and modify launch_rpa.pat in the same directory
+* or open command line console, like terminator (sandbox) / cmd.exe (windows desktop), switch to the directory and run
+
+```
+rpa.exe --ini-file rpa.ini --profile RPA_std
+```
+
 ## Run RPA client on sandbox or desktop
 
 * Connect to GUI via VirtualBox, use vagrant to login. You don't need this step for your desktop.
-* Launch Browser, either Firefox or Chrome and log into the application
+* Launch Browser, either Firefox or Chrome and log into the application, make sure that the browser window is not covered by other windows/applications
 * Open command line console, like terminator (sandbox) / cmd.exe (windows desktop)
 
 ```
